@@ -43,6 +43,8 @@ frutas.forEach((valor, indice)=>{
     É uma estrutura de laço que itera sobre os valores de objetos iteráveis (como arrays).
 */
 
+// for...of: É feito para arrays (e outras estruturas iteráveis), permitindo percorrer os elementos do array.
+
 console.log('Usando for of:')
 for(const fruta of frutas){
     console.log(fruta)
