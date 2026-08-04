@@ -17,7 +17,23 @@ function comprar(){
     } else if (tipo == 'inferior') {
         compraIngresso(qtd, 'qtd-inferior')
     }
+    
+}
 
+function compraIngresso(qtd, idIgresso){
+    let ingresso = document.getElementById(idIgresso);
+    let qtdIngresso = parseInt(ingresso.textContent);
+
+    if(qtd > qtdIngresso){
+        alert('Quantidade Inválida')
+        document.getElementById('qtd').value = ''
+    }else{
+        let total = qtdIngresso - qtd;
+        ingresso.textContent =  total;
+        document.getElementById('qtd').value = ''
+        alert("Compra realizada com sucesso")
+
+    }
 }
 // refatorando as funções
 
@@ -57,19 +73,3 @@ function comprarInferior(qtd){
         }
 }
 */
-
-function compraIngresso(qtd, idIgresso){
-    let ingresso = document.getElementById(idIgresso);
-    let qtdIngresso = parseInt(ingresso.textContent);
-
-    if(qtd > qtdIngresso){
-        alert('Quantidade Inválida')
-        document.getElementById('qtd').value = ''
-    }else{
-        let total = qtdIngresso - qtd;
-        ingresso.textContent =  total;
-        document.getElementById('qtd').value = ''
-        alert("Compra realizada com sucesso")
-
-    }
-}
