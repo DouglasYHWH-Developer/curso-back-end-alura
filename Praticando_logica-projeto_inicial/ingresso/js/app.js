@@ -1,18 +1,24 @@
 function comprar(){
     let tipo = document.getElementById('tipo-ingresso').value;
     let qtd = parseInt(document.getElementById('qtd').value);
+
+    if(isNaN(qtd) || qtd <= 0){
+        alert('Por favor, insira uma quantidade válida.')
+        return;
+    }
     
     if (tipo == 'pista') {
-        comprarPista(qtd);
+        compraIngresso(qtd, 'qtd-pista');
     } else if (tipo == 'superior') {
-        comprarSuperior(qtd);
+        compraIngresso(qtd, 'qtd-superior');
     } else if (tipo == 'inferior') {
-        comprarInferior(qtd)
+        compraIngresso(qtd, 'qtd-inferior')
     }
 
 }
+// refatorando as funções
 
-function comprarPista(qtd){
+/*function comprarPista(qtd){
     let qtdPista = document.getElementById('qtd-pista');
     if (qtd > qtdPista.textContent) {
             alert('Quantidade Inválida')
@@ -47,4 +53,19 @@ function comprarInferior(qtd){
             alert("Compra realizada com sucesso")
         }
 }
+*/
 
+function compraIngresso(qtd, idIgresso){
+    let ingresso = document.getElementById(idIgresso);
+    let qtdIngresso = parseInt(ingresso.textContent);
+
+    if(qtd > qtdIngresso){
+        alert('Quantidade Inválida')
+    }else{
+        let total = qtdIngresso - qtd;
+        ingresso.textContent =  total;
+        document.getElementById('qtd').value = ''
+        alert("Compra realizada com sucesso")
+
+    }
+}
