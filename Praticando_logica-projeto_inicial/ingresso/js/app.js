@@ -1,11 +1,14 @@
 function comprar(){
     let tipo = document.getElementById('tipo-ingresso').value;
-    let qtd = parseInt(document.getElementById('qtd').value);
+    let valorInput = document.getElementById('qtd').value;
 
-    if(isNaN(qtd) || qtd <= 0){
+    if(!Number.isInteger(Number(valorInput)) || valorInput <= 0){
         alert('Por favor, insira uma quantidade válida.')
+        document.getElementById('qtd').value = ''
         return;
     }
+
+    let qtd = parseInt(valorInput)
     
     if (tipo == 'pista') {
         compraIngresso(qtd, 'qtd-pista');
@@ -61,6 +64,7 @@ function compraIngresso(qtd, idIgresso){
 
     if(qtd > qtdIngresso){
         alert('Quantidade Inválida')
+        document.getElementById('qtd').value = ''
     }else{
         let total = qtdIngresso - qtd;
         ingresso.textContent =  total;
