@@ -22,3 +22,6 @@ function exibeNomeENota(aluno){
 }
 
 console.log(exibeNomeENota('Juliana'));
+console.log(exibeNomeENota('Pedro'));
+
+
