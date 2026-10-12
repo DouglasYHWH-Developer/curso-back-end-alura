@@ -5,3 +5,13 @@ function somaDeArray(...numeros){
 }
 
 console.log(somaDeArray(10, 10, 10, 10))
+
+
+// método de encadeamento
+const precos = [15, 89, 45, 120, 30, 250];
+
+const total= precos
+    .filter((preco) => preco <= 50)
+    .reduce((acc, val) => acc + val,0)
+
+console.log(total)
